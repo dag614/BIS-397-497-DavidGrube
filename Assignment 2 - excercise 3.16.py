@@ -16,8 +16,11 @@ print("")
 
 print(numbers)
 
- 
-
 print("")
 
-print('Largest value 1:', numbers[9],'\nLargest value 2:', numbers[8])
+print('Largest value 1:', 
+      numbers[len(numbers) - 1],
+      '\nLargest value 2:', 
+      numbers[len(numbers) - 2]
+      )
+
