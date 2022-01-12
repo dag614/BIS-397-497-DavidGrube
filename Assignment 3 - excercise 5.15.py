@@ -13,34 +13,44 @@ jan_invoices = [(83, 'electric sander', 7, 57.98),
                 (39, 'jig saw', 3, 79.50)]
 
 print("")
+print("sorted by description")
+print("")
 
 for part, description, quantity, price, in sorted(jan_invoices, key=itemgetter(1)):
-    print(part, description, quantity, price)
+    print(f'{part:>2} {description:<16} {quantity:<4} {price}')
 
+print("")
+print("sorteed by price")
 print("")
 
 for part, description, quantity, price, in sorted(jan_invoices, key=itemgetter(3)):
-    print(part, description, quantity, price)
+    print(f'{part:>2} {description:<16} {quantity:<4} {price}')
 
+print("")
+print("sorted by quantity")
 print("")
 
 qty_tup = [(description, quantity) for part, description, quantity, price, in jan_invoices]
 
 for description, quantity in sorted(qty_tup, key=itemgetter(1)):
-    print(description, quantity)
-    
+    print(f'{description:<16} {quantity:<4}')
+ 
+print("")
+print("sorted by invoice value")
 print("")
 
 total_tup = [(description, quantity * price) for part, description, quantity, price, in jan_invoices]
 
 for description, total in sorted(total_tup, key=itemgetter(1)):
-    print(description, total)
+    print(f'{description:<16} {total:.2f}')
 
+print("")
+print("sorted by invoice value >$200, <$500")
 print("")
 
 for description, total in sorted(total_tup, key=itemgetter(1)):
     if total >= 200 and total <= 500:
-        print(description, total)
+        print(f'{description:<16} {total:.2f}')
     
 print("")
 
@@ -49,7 +59,7 @@ sum(z)
 grand_total = sum(z)
 print('grand total equals: ', grand_total)
     
-    
+   
     
     
     
