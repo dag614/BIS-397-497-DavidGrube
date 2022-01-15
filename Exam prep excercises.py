@@ -167,11 +167,52 @@ Created on Tue Jan 11 16:04:23 2022
         print('the loop terminated without executing the break')
 
 
+# Chapter 4 Exercises: 4.7
 
+  
+    def day_and_time():
+        import datetime
+        print(datetime.datetime.today())
 
+# Chapter 4 Exercises: 4.10
 
+    import random
+    replay = 'y'
+    
+    while replay == 'y':
+    
+        x = [random.randrange(1, 5)]
+        guess = [int(input('guess my number between 1 and 5 wiht the fewest guesses: '))]
+    
+        while guess != x:
+            if guess < x:
+                guess = [int(input('too low, guess again: '))]
+            elif guess > x:
+                guess = [int(input('too high, guess again: '))]
+    
+        print('congratulations! you guessed the number')
+    
+        replay = (input('play again (y or n): '))
 
+# Chapter 4 Exercises: 4.14
 
+    import random
+    replay = 'y'
+    
+    while replay == 'y':
+        
+        num1 = random.randrange(0,11)
+        num2 = random.randrange(0,11)
+        tup1 = (num1, num2)
+    
+        answer = int(input(f'what is {num1} x {num2} ?: '))
+        
+        while answer != tup1[0] * tup1[1]:
+            print('incorrct, try again')
+            answer = int(input(f'what is {num1} x {num2} ?: '))
+        else:
+            print('correct!')
+            replay = input('play again (y or n): ')
 
 
 
