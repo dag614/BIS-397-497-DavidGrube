@@ -12,57 +12,55 @@ jan_invoices = [(83, 'electric sander', 7, 57.98),
                 (77, 'hammer', 76, 11.99), 
                 (39, 'jig saw', 3, 79.50)]
 
-print("")
-print("sorted by description")
-print("")
+print()
+print("sorted by description")                                    # DESCRIPTION
+print()
 
 for part, description, quantity, price, in sorted(jan_invoices, key=itemgetter(1)):
     print(f'{part:>2} {description:<16} {quantity:<4} {price}')
 
-print("")
-print("sorteed by price")
-print("")
+print()
+print("sorteed by price")                                               # PRICE
+print()
 
 for part, description, quantity, price, in sorted(jan_invoices, key=itemgetter(3)):
     print(f'{part:>2} {description:<16} {quantity:<4} {price}')
 
-print("")
-print("sorted by quantity")
-print("")
+print()
+print("sorted by quantity")                                         # QUANITITY
+print()
 
 qty_tup = [(description, quantity) for part, description, quantity, price, in jan_invoices]
 
 for description, quantity in sorted(qty_tup, key=itemgetter(1)):
     print(f'{description:<16} {quantity:<4}')
  
-print("")
-print("sorted by invoice value")
-print("")
+print()
+print("sorted by invoice value")                                # INVOICE VALUE
+print()
 
 total_tup = [(description, quantity * price) for part, description, quantity, price, in jan_invoices]
 
 for description, total in sorted(total_tup, key=itemgetter(1)):
     print(f'{description:<16} {total:.2f}')
 
-print("")
-print("sorted by invoice value >$200, <$500")
-print("")
+print()
+print("sorted by invoice value >$200, <$500")                # FILTER BY AMOUNT
+print()
 
 for description, total in sorted(total_tup, key=itemgetter(1)):
     if total >= 200 and total <= 500:
         print(f'{description:<16} {total:.2f}')
     
-print("")
+print()
 
-z = [(total) for description, total in total_tup]
-sum(z)
-grand_total = sum(z)
-print('grand total equals: ', grand_total)
-    
+z = [(total) for description, total in total_tup]                 # GRAND TOTAL
+print('grand total of Jan Invoices =', sum(z))
+
+   
    
     
     
     
-    
-    
+
     

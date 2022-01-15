@@ -5,7 +5,10 @@ Created on Sun Jan  9 12:00:59 2022
 @author: mrdav
 """
 
-dic = {1: 'one', 
+dic = {
+00: '',
+0: '',
+1: 'one', 
 2: 'two', 
 3: 'three', 
 4: 'four', 
@@ -25,134 +28,59 @@ dic = {1: 'one',
 18: 'eighteen', 
 19: 'nineteen', 
 20: 'tenty', 
-21: 'tenty one', 
-22: 'tenty two', 
-23: 'tenty three', 
-24: 'tenty four', 
-25: 'tenty five', 
-26: 'tenty six', 
-27: 'tenty seven', 
-28: 'tenty eight', 
-29: 'tenty nine', 
 30: 'thirty', 
-31: 'thirty one', 
-32: 'thirty two', 
-33: 'thirty three', 
-34: 'thirty four', 
-35: 'thirty five', 
-36: 'thirty six', 
-37: 'thirty seven', 
-38: 'thirty eight', 
-39: 'thirty nine', 
 40: 'forty', 
-41: 'forty one', 
-42: 'forty two', 
-43: 'forty three', 
-44: 'forty four', 
-45: 'forty five', 
-46: 'forty six', 
-47: 'forty seven', 
-48: 'forty eight', 
-49: 'forty nine', 
 50: 'fifty', 
-51: 'fifty one', 
-52: 'fifty two', 
-53: 'fifty three', 
-54: 'fifty four', 
-55: 'fifty five', 
-56: 'fifty six', 
-57: 'fifty seven', 
-58: 'fifty eight', 
-59: 'fifty nine', 
 60: 'sixty', 
-61: 'sixty one', 
-62: 'sixty two', 
-63: 'sixty three', 
-64: 'sixty four', 
-65: 'sixty five', 
-66: 'sixty six', 
-67: 'sixty seven', 
-68: 'sixty eight', 
-69: 'sixty nine', 
 70: 'seventy', 
-71: 'seventy one', 
-72: 'seventy two', 
-73: 'seventy three', 
-74: 'seventy four', 
-75: 'seventy five', 
-76: 'seventy six', 
-77: 'seventy seven', 
-78: 'seventy eight', 
-79: 'seventy nine', 
 80: 'eighty', 
-81: 'eighty one', 
-82: 'eighty two', 
-83: 'eighty three', 
-84: 'eighty four', 
-85: 'eighty five', 
-86: 'eighty six', 
-87: 'eighty seven', 
-88: 'eighty eight', 
-89: 'eighty nine', 
-90: 'ninety', 
-91: 'ninety one', 
-92: 'ninety two', 
-93: 'ninety three', 
-94: 'ninety four', 
-95: 'ninety five', 
-96: 'ninety six', 
-97: 'ninety seven', 
-98: 'ninety eight', 
-99: 'ninety nine' }
+90: 'ninety' }
 
-number = []
-number += '5112.43'                                         # number here
-thousands, hundreds, tens, ones, decimal, cent1, cent2 = number
-tenths = (tens + ones)
-cents = (cent1 + cent2)
-print(
-      dic[int(thousands)],
-      'thousand',
-      dic[int(hundreds)],
-      'hundred',
-      dic[int(tenths)],
-      'and', cents, '/ 100'
-      )
+def display_table(a):
 
+    a = a
+    b = list(str(a))
+    
+    if len(b) == 6:          # Here I am packing in zero i the higher places if needed
+        b.insert(0, '0')
+    if len(b) == 5:
+        b.insert(0, '0')
+        b.insert(1, '0')
+    if len(b) == 4:
+        b.insert(0, '0')
+        b.insert(1, '0')
+        b.insert(2, '0')
+    
+    thousands, hundreds, tens, ones, decimal, cent1, cent2 = b
+    cents = (cent1 + cent2)
+    
+    if thousands > '0':       # Here I am trying to deal with printing or not printing
+        c = 'thousand'
+    else:
+        c = ''
+    if hundreds > '0':
+        d = 'hundred'
+    else: 
+        d = ''    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    print(dic[int(thousands)],
+          c,
+          dic[int(hundreds)],
+          d,
+          dic[int(tens + '0')],
+          dic[int(ones)],
+          'and', cents, '/ 100')
+                     
+print()
+display_table(4512.68)
+print()
+display_table(856.29)
+print()
+display_table(48.45)
+print()
+display_table(9.72)                             
+print()
+print('less than a dollar, please pay cash!')
 
 
 
